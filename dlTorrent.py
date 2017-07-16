@@ -57,7 +57,8 @@ def main():
     p = get_search_page_9_torrent("American God")
     list_lien = get_torrent_page(p)
     list_lien = filter_link(list_lien, "vostfr")
-    for lien in list_lien.reverse():
+    list_lien = list_lien[::-1]
+    for lien in list_lien:
         list_dl.append(pre_url + dl_lien_torrent(pre_url + lien))
     create_torrent_dl_text_file(list_dl)
     dl_with_aria2c("lien_torrent")
